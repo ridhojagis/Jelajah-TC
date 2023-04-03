@@ -225,7 +225,7 @@ label lantai_3:
 
             jump lantai_2
 
-    "Pergi ke LP 1:
+    "Pergi ke LP 1"
 
             jump lp_1
 
