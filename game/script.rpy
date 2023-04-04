@@ -362,11 +362,11 @@ label lantai_2:
 label ruang_santai:
 
     if lantai == 2:
-        scene bg ruang_Santai_lt2
+        scene bg rg_santai_lt2
         with dissolve
 
     elif lantai == 3:
-        scene bg ruang_Santai_lt3
+        scene bg rg_santai_lt3
         with dissolve
 
     menu:
@@ -390,7 +390,7 @@ label ruang_santai:
 
 label ruang_tu:
 
-    scene bg ruang_TU
+    scene bg rg_tu
     with dissolve
 
     menu:
