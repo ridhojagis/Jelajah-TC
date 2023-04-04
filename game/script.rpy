@@ -22,6 +22,16 @@ screen clock_screen:
 # The game starts here.
 label start:
 
+    scene bg fsm_1
+    with fade
+
+    "FSM Jelajah Teknik Informatika"
+    with PushMove(1, "pushup")
+
+    scene bg fsm_2
+
+    "Dibuat oleh...."
+
     scene bg jalan
 
     # menampilkan jam analog
