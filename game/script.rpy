@@ -403,6 +403,13 @@ label ruang_tu:
 
         "Bertanya jadwal kelas":
 
+            show dosen2
+            with dissolve
+
+            a "Permisi Pak"
+            i "Iya ada apa?"
+            a "Saya ingin bertanya mengenai jadwal kelas Sistem Game"
+
             $ myClock.add_time(0,10,1)
             jump ruang_tu
 
@@ -492,13 +499,15 @@ label kelas_sistem_game:
 
     scene black
 
-    if ($ makan is True and $ buang_air is True and shalat_dhuhur is True and shalat_ashar is True):
+    if (makan is True and buang_air is True and shalat_dhuhur is True and shalat_ashar is True):
 
         "Dapat nilai bagus"
 
         "{b}Good Ending{/b}."
 
-    elif ($ makan is False or $ buang_air is False):
+        return
+
+    elif (makan is False or buang_air is False):
 
         "Kamu tidak fokus dalam kelas karena belum makan dan buang air terlebih dahulu"
         "Dan akhirnya kamu mendapat nilai jelek"
@@ -506,7 +515,7 @@ label kelas_sistem_game:
         return
     # This ends the game.
 
-    elif ($ shalat_dhuhur is False or $ shalat_ashar is False):
+    elif (shalat_dhuhur is False or shalat_ashar is False):
 
         "Kamu belum shalat wajib!"
         "Sehingga mendapat nilai jelek karena tidak mendapat berkah"
