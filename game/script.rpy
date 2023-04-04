@@ -10,332 +10,448 @@ default makan = False
 default buang_air = False
 default shalat_dhuhur = False
 default shalat_ashar = False
+default lantai = 1
 
+default myClock = Clock(True, 8, 0, 150, False, False) #Analogue or Digital, hours, minutes, size, second hand, military time
+
+screen clock_screen:
+    add myClock:
+        xalign 1.0
+        yalign 0.0
 
 # The game starts here.
-
 label start:
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
+    scene bg jalan
 
-    scene bg depan_dpt
-    with dissolve
+    # menampilkan jam analog
+    show screen clock_screen
+    with Dissolve(1)
 
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
+    scene bg gerbang_dpt1
+    with fade
 
-    show eileen happy
+    scene bg gerbang_dpt2
+    with fade
 
-    scene bg dpt
-    with dissolve
+    scene bg parkir_mobil1
+    with fade
 
-    # These display lines of dialogue.
+    scene bg parkir_mobil2
+    with fade
+
+    scene bg parkir_mobil3
+    with fade
+
+    $ myClock.add_time(0,15,1)
+
     menu:
-    "....."
 
-        "Ke parkiran.":
+        "....."
+
+        "Ke parkiran":
 
             jump parkiran
 
-        "Pulang ke kos.":
+        "Pulang ke kos":
 
             jump kos
-
-
-    e "You've created a new Ren'Py game."
-
-    e "Once you add a story, pictures, and music, you can release it to the world!"
-
-    # This ends the game.
-
-label parkiran:
-
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
-
-    scene bg parkir
-    with dissolve
-
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
-
-    show eileen happy
-
-    # These display lines of dialogue.
-    menu:
-    "....."
-
-        "Masuk gedung.":
-
-            jump lantai_1
-
-        "Pulang ke kos.":
-
-            jump kos
-
-
-    e "You've created a new Ren'Py game."
-
-    e "Once you add a story, pictures, and music, you can release it to the world!"
-
-label lantai_1:
-
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
-
-    scene bg lt_1
-    with dissolve
-
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
-
-    show eileen happy
-
-    # These display lines of dialogue.
-    menu:
-    "....."
-
-        "Ke musholla.":
-
-            jump musholla
-
-        "Pergi ke toilet.":
-
-            jump toilet
-
-        "Pergi ke kantin":
-
-            jump kantin
-
-        "Kembali ke parkiran"
-
-            jump parkiran
-
-        "Jelajah lantai 1"
-
-            jump jelajah_lt1
-
-        "Naik ke lantai 2"
-
-            jump lantai_2
-
-
-    e "You've created a new Ren'Py game."
-
-    e "Once you add a story, pictures, and music, you can release it to the world!"
-
-label jelajah_lt1:
-
-    scene bg 1
-    scene bg 2
-
-    jump lantai_1
-
-label lantai_2:
-
-    scene bg lt_2
-
-    menu:
-
-    "Pergi ke ruang santai"
-
-        jump ruang_santai
-
-    "Pergi ke toilet.":
-
-            jump toilet   
-
-    "Pergi ke ruang TU.":
-
-            jump ruang_tu
-
-    "Jelajah lantai 2"
-
-            jump jelajah_lt2
-
-    "Turun ke lantai 1"
-
-            jump lantai_1
-
-    "Naik ke lantai 3"
-
-            jump lantai_3
-
-label ruang_santai:
-
-    scene bg santai_room
-
-    menu:
-
-    "Kembali"
-
-    jump lantai_2
-
-    "Bersantai 1 jam"
-
-    jump ruang_santai
-
-label ruang_tu:
-
-    scene bg tu_room
-
-    menu:
-
-    "Kembali"
-
-    jump lantai_2
-
-    "Bertanya jadwal kelas"
-
-    jump ruang_santai
-
-label jelajah_lt2:
-
-    scene bg 1
-    scene bg 2
-
-    jump lantai_2
-
-label lantai_3:
-
-    scene bg lt_3
-
-    menu:
-
-    "Pergi ke ruang santai"
-
-        jump ruang_santai
-
-    "Pergi ke toilet.":
-
-            jump toilet   
-
-    "Jelajah lantai 3"
-
-            jump jelajah_lt3
-
-    "Turun ke lantai 2"
-
-            jump lantai_2
-
-    "Pergi ke LP 1"
-
-            jump lp_1
-
-label lp_1:
-
-    scene bg depan_lp_1
-
-    #jika jam 15:30
-    jump kelas_sistem_game
-
-    "Kembali ke lantai 3"
-
-        jump lantai_3
-
-label kelas_sistem_game:
-
-    if ($ makan = True && $ buang_air = True && shalat_dhuhur = True && shalat_ashar = True)
-
-        "Dapat nilai bagus"
-        
-        "{b}Good Ending{/b}."
-
-    else if ($ makan = False || $ buang_air = False)
-        
-        "...."
-        "{b}Bad Ending{/b}."
-
-    else if ($ shalat_dhuhur = False || $ shalat_ashar = False)
-        
-        "...."
-        "{b}Bad Ending{/b}."
-
-label jelajah_lt3:
-
-    scene bg 1
-    scene bg 2
-
-    jump lantai_3
-
-label musholla:
-
-    scene bg musholla
-
-    menu:
-
-    "Kembali ke lantai 1"
-
-        jump lantai_1
-
-    "Shalat"
-
-        jump shalat
-
-label shalat:
-
-    #jam dhuhur
-    shalat_dhuhur = True
-
-    #jam ashar
-    shalat_ashar = True
-
-    scene bg wudhu
-    scene bg dalam_musholla
-
-    jump musholla
-
-label toilet:
-
-    scene bg dalam_toilet
-
-    menu:
-
-    "Cuci muka"
-        play sound keran
-        jump toilet
-
-    "Buang air"
-        jump toilet
-
-    "Kembali ke lantai 1"
-        jump lantai_1
-
-label kantin:
-
-    scene bg depan_kantin
-
-    menu:
-
-    "Makan"
-        jump kantin
-
-    "Kembali ke lantai 1"
-        jump lantai_1
 
 label kos:
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
+    scene bg parkir_mobil3
+    with fade
 
-    scene bg jalan_pulang
-    with dissolve
+    scene bg parkir_mobil2
+    with fade
 
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
+    scene bg parkir_mobil1
+    with fade
 
-    show eileen happy
+    scene bg gerbang_dpt2
+    with fade
+
+    scene bg gerbang_dpt1
+    with fade
+
+    scene bg jalan
+    with fade
+
+    $ myClock.add_time(0,15,1)
 
     # END.
     "{b}Bad Ending{/b}."
 
     return
+    # This ends the game.
+
+label parkiran:
+
+    scene bg jalan_ke_parkir1
+    with fade
+
+    scene bg jalan_ke_parkir2
+    with fade
+
+    scene bg parkir1
+    with fade
+
+    scene bg parkir2
+    with fade
+
+    $ myClock.add_time(0,5,1)
+
+    menu:
+
+        "....."
+
+        "Masuk ke dalam gedung":
+
+            jump lantai_1
+
+        "Pulang ke kos":
+
+            jump kos
+
+label lantai_1:
+
+    $ lantai = 1
+
+    scene bg lantai1
+    with dissolve
+
+    $ myClock.add_time(0,5,1)
+
+    menu:
+
+        "....."
+
+        "Jelajah lantai 1":
+
+            jump jelajah_lt1
+
+        "Naik ke lantai 2":
+
+            jump lantai_2
+
+        "Ke musala":
+            $ myClock.add_time(0,10,1)
+            jump musala
+
+        "Pergi ke toilet":
+            scene bg toilet
+            with fade
+            $ myClock.add_time(0,5,1)
+            jump toilet
+
+        "Pergi ke kantin":
+            $ myClock.add_time(0,10,1)
+            jump kantin
+
+        "Kembali ke parkiran":
+
+            jump parkiran
+
+
+label jelajah_lt1:
+
+    scene bg lorong_utara_lt1_orang
+    with fade
+
+    scene bg lorong_utara_lt1_povbarat
+    with fade
+
+    scene bg kantin
+    with fade
+
+    scene bg musala
+    with fade
+
+    scene bg panggung
+    with fade
+
+    scene bg lapangan1
+    with fade
+
+    scene bg lapangan2
+    with fade
+
+    scene bg pikti1
+    with fade
+
+    scene bg pikti2
+    with fade
+
+    scene bg pikti3
+    with fade
+
+    $ myClock.add_time(1,0,3)
+
+    scene bg if_110
+    with fade
+
+    scene bg if_110_closeup
+    with fade
+
+    scene bg lab_pascasarjana1
+    with fade
+
+    scene bg lab_pascasarjana2
+    with fade
+
+    scene bg lorong_selatan_lt1
+    with fade
+
+    scene bg lapangan3
+    with fade
+
+    scene bg lapangan4
+    with fade
+
+    scene bg toilet
+    with fade
+
+    scene bg depan_dpt1
+    with fade
+
+    scene bg depan_dpt2
+    with fade
+
+    jump lantai_1
+
+label musala:
+
+    scene bg musala
+
+    menu:
+
+        "....."
+
+        "Menunaikan salat":
+            $h, m, s = myClock.get_time()
+            "It is [h]:[m]:[s]"
+            if int(h) >= 12 or int(h) <= 5:
+                jump salat
+            else:
+                "Belum memasuki waktu salat."
+
+            jump musala
+
+        "Kembali":
+
+            jump lantai_1
+
+label salat:
+    $h, m, s = myClock.get_time()
+
+    scene bg wudu
+    with fade
+
+    scene bg dalam_musala1
+    with fade
+
+    scene bg dalam_musala2
+
+    #jam dhuhur
+    if int(h) >= 12 or int(h) < 3:
+        if shalat_dhuhur is False:
+            "*Sedang melaksanakan solat zuhur"
+            $shalat_dhuhur = True
+        else:
+            "Kamu sudah salat zuhur!"
+    #jam ashar
+    elif int(h) >= 3 and int(h) < 6:
+        if shalat_ashar is False:
+            "*Sedang melaksanakan solat asar"
+            $shalat_ashar = True
+        else:
+            "Kamu sudah salat asar!"
+
+    $ myClock.add_time(0,20,1)
+
+    jump musala
+
+label kantin:
+
+    scene bg kantin
+
+    menu:
+
+        "....."
+
+        "Makan":
+            $h, m, s = myClock.get_time()
+            if int(h) >= 9 or int(h) <= 4:
+                if makan is False:
+                    $makan = True
+                    $ myClock.add_time(0,30,2)
+                    "Alhamdulillah kenyang."
+                else:
+                    "Masih kenyang."
+            else:
+                "Kantin belum buka"
+
+            jump kantin
+
+        "Kembali":
+            jump lantai_1
+
+# label lantai_2:
+#
+#     scene bg lt_2
+#
+#     menu:
+#
+#     "Pergi ke ruang santai"
+#
+#         jump ruang_santai
+#
+#     "Pergi ke toilet.":
+#
+#             jump toilet
+#
+#     "Pergi ke ruang TU.":
+#
+#             jump ruang_tu
+#
+#     "Jelajah lantai 2"
+#
+#             jump jelajah_lt2
+#
+#     "Turun ke lantai 1"
+#
+#             jump lantai_1
+#
+#     "Naik ke lantai 3"
+#
+#             jump lantai_3
+#
+# label ruang_santai:
+#
+#     scene bg santai_room
+#
+#     menu:
+#
+#     "Kembali"
+#
+#     jump lantai_2
+#
+#     "Bersantai 1 jam"
+#
+#     jump ruang_santai
+#
+# label ruang_tu:
+#
+#     scene bg tu_room
+#
+#     menu:
+#
+#     "Kembali"
+#
+#     jump lantai_2
+#
+#     "Bertanya jadwal kelas"
+#
+#     jump ruang_santai
+#
+# label jelajah_lt2:
+#
+#     scene bg 1
+#     scene bg 2
+#
+#     jump lantai_2
+#
+# label lantai_3:
+#
+#     scene bg lt_3
+#
+#     menu:
+#
+#     "Pergi ke ruang santai"
+#
+#         jump ruang_santai
+#
+#     "Pergi ke toilet.":
+#
+#             jump toilet
+#
+#     "Jelajah lantai 3"
+#
+#             jump jelajah_lt3
+#
+#     "Turun ke lantai 2"
+#
+#             jump lantai_2
+#
+#     "Pergi ke LP 1"
+#
+#             jump lp_1
+#
+# label lp_1:
+#
+#     scene bg depan_lp_1
+#
+#     #jika jam 15:30
+#     jump kelas_sistem_game
+#
+#     "Kembali ke lantai 3"
+#
+#         jump lantai_3
+#
+# label kelas_sistem_game:
+#
+#     if ($ makan = True && $ buang_air = True && shalat_dhuhur = True && shalat_ashar = True)
+#
+#         "Dapat nilai bagus"
+#
+#         "{b}Good Ending{/b}."
+#
+#     else if ($ makan = False || $ buang_air = False)
+#
+#         "...."
+#         "{b}Bad Ending{/b}."
+#
+#     else if ($ shalat_dhuhur = False || $ shalat_ashar = False)
+#
+#         "...."
+#         "{b}Bad Ending{/b}."
+#
+# label jelajah_lt3:
+#
+#     scene bg 1
+#     scene bg 2
+#
+#     jump lantai_3
+#
+
+label toilet:
+
+    scene bg wastafel
+    with fade
+
+    menu:
+
+        "....."
+
+        "Cuci muka":
+            "Hmm segar kembali"
+            $ myClock.add_time(0,5,1)
+            jump toilet
+
+        "Buang air":
+            if makan == True:
+                scene bg kamar_mandi
+                if buang_air is False:
+                    $ myClock.add_time(0,15,1)
+                    $buang_air = True
+                    "ah leganya..."
+                else:
+                    "*Baru saja tadi buang air"
+            else:
+                "Isi perut masih kosong."
+
+            jump toilet
+
+        "Kembali":
+            if lantai == 1:
+                jump lantai_1
