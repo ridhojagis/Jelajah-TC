@@ -503,12 +503,16 @@ label kelas_sistem_game:
         "Kamu tidak fokus dalam kelas karena belum makan dan buang air terlebih dahulu"
         "Dan akhirnya kamu mendapat nilai jelek"
         "{b}Bad Ending{/b}."
+        return
+    # This ends the game.
 
     elif ($ shalat_dhuhur is False or $ shalat_ashar is False):
 
         "Kamu belum shalat wajib!"
         "Sehingga mendapat nilai jelek karena tidak mendapat berkah"
         "{b}Bad Ending{/b}."
+        return
+    # This ends the game.
 
 label jelajah_lt3:
 
