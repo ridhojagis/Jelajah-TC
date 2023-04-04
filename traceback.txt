@@ -1,15 +1,15 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 494, in script
-    if ($ makan == True and $ buang_air == True and shalat_dhuhur == True and shalat_ashar == True):
-SyntaxError: invalid syntax (game/script.rpy, line 494)
+  File "game/script.rpy", line 495, in script
+    if ($ makan is True and $ buang_air is True and shalat_dhuhur is True and shalat_ashar is True):
+SyntaxError: invalid syntax (game/script.rpy, line 495)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 494, in script
-    if ($ makan == True and $ buang_air == True and shalat_dhuhur == True and shalat_ashar == True):
+  File "game/script.rpy", line 495, in script
+    if ($ makan is True and $ buang_air is True and shalat_dhuhur is True and shalat_ashar is True):
   File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\ast.py", line 2115, in execute
     if renpy.python.py_eval(condition):
   File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\python.py", line 1090, in py_eval
@@ -20,9 +20,9 @@ Full traceback:
     raise orig_e
   File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\python.py", line 972, in py_compile
     tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, 1)
-SyntaxError: invalid syntax (game/script.rpy, line 494)
+SyntaxError: invalid syntax (game/script.rpy, line 495)
 
 Windows-10-10.0.22621 AMD64
 Ren'Py 8.0.3.22090809
 Jelajah_TC 1.0
-Tue Apr  4 20:22:04 2023
+Tue Apr  4 20:40:07 2023

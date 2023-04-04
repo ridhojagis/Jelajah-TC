@@ -467,7 +467,7 @@ label lp_1:
         "Masuk kelas Sistem Game":
             $h, m, s = myClock.get_time()
             "It is [h]:[m]:[s]"
-            if ((int(h) == 3 or 4) and int(m) >= 30):
+            if ((int(h) == 3 and int(m) >= 30 ) or int(h) == 4):
                 jump kelas_sistem_game
             else:
                 "Masih ada kelas lain, tunggu beberapa saat lagi."
@@ -476,10 +476,11 @@ label lp_1:
         "Tunggu":
 
             $h, m, s = myClock.get_time()
-            if ((int(h) == 3 or 4) and int(m) >= 30):
+            if ((int(h) == 3 and int(m) >= 30 ) or int(h) == 4):
                 "Kelas sudah dimulai, segera masuk!"
                 jump lp_1
             else:
+                "Menunggu kelas dimulai"
                 $ myClock.add_time(0,5,1)
                 jump lp_1
 
