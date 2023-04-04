@@ -2,7 +2,17 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 270: Indentation mismatch.
+File "game/script.rpy", line 494: reached end of line when expecting ':'.
+    if ($ makan == True and $ buang_air == True and shalat_dhuhur == True and shalat_ashar == True)
+                                                                                                   ^
+
+File "game/script.rpy", line 500: expected statement.
+    elif ($ makan == False or $ buang_air == False)
+                                                   ^
+
+File "game/script.rpy", line 506: expected statement.
+    elif ($ shalat_dhuhur == False or $ shalat_ashar == False)
+                                                              ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Tue Apr  4 14:33:23 2023
+Tue Apr  4 20:18:44 2023

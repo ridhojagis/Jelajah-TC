@@ -1,28 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 26, in script
-    with Fade(5)
-TypeError: Fade() missing 2 required positional arguments: 'hold_time' and 'in_time'
+  File "game/script.rpy", line 494, in script
+    if ($ makan == True and $ buang_air == True and shalat_dhuhur == True and shalat_ashar == True):
+SyntaxError: invalid syntax (game/script.rpy, line 494)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 26, in script
-    with Fade(5)
-  File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\ast.py", line 1658, in execute
-    renpy.exports.with_statement(trans, paired=paired)
-  File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\exports.py", line 1657, in with_statement
-    return renpy.game.interface.do_with(trans, paired, clear=clear)
-  File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\display\core.py", line 2798, in do_with
-    return self.interact(trans_pause=True,
-  File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\display\core.py", line 3377, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\display\core.py", line 3752, in interact_core
-    trans = self.ongoing_transition[None](
-TypeError: Fade() missing 2 required positional arguments: 'hold_time' and 'in_time'
+  File "game/script.rpy", line 494, in script
+    if ($ makan == True and $ buang_air == True and shalat_dhuhur == True and shalat_ashar == True):
+  File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\ast.py", line 2115, in execute
+    if renpy.python.py_eval(condition):
+  File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\python.py", line 1090, in py_eval
+    code = py_compile(code, 'eval')
+  File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\python.py", line 1027, in py_compile
+    raise e
+  File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\python.py", line 979, in py_compile
+    raise orig_e
+  File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\python.py", line 972, in py_compile
+    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, 1)
+SyntaxError: invalid syntax (game/script.rpy, line 494)
 
 Windows-10-10.0.22621 AMD64
 Ren'Py 8.0.3.22090809
 Jelajah_TC 1.0
-Tue Apr  4 17:14:34 2023
+Tue Apr  4 20:22:04 2023

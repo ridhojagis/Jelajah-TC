@@ -29,6 +29,7 @@ label start:
     with PushMove(1, "pushup")
 
     scene bg fsm_2
+    with Pause(5)
 
     "Dibuat oleh...."
 
@@ -142,6 +143,8 @@ label lantai_1:
 
         "Naik ke lantai 2":
 
+            scene bg tangga_lantai2
+            with fade
             jump lantai_2
 
         "Ke musala":
@@ -306,133 +309,214 @@ label kantin:
         "Kembali":
             jump lantai_1
 
-# label lantai_2:
-#
-#     scene bg lt_2
-#
-#     menu:
-#
-#     "Pergi ke ruang santai"
-#
-#         jump ruang_santai
-#
-#     "Pergi ke toilet.":
-#
-#             jump toilet
-#
-#     "Pergi ke ruang TU.":
-#
-#             jump ruang_tu
-#
-#     "Jelajah lantai 2"
-#
-#             jump jelajah_lt2
-#
-#     "Turun ke lantai 1"
-#
-#             jump lantai_1
-#
-#     "Naik ke lantai 3"
-#
-#             jump lantai_3
-#
-# label ruang_santai:
-#
-#     scene bg santai_room
-#
-#     menu:
-#
-#     "Kembali"
-#
-#     jump lantai_2
-#
-#     "Bersantai 1 jam"
-#
-#     jump ruang_santai
-#
-# label ruang_tu:
-#
-#     scene bg tu_room
-#
-#     menu:
-#
-#     "Kembali"
-#
-#     jump lantai_2
-#
-#     "Bertanya jadwal kelas"
-#
-#     jump ruang_santai
-#
-# label jelajah_lt2:
-#
-#     scene bg 1
-#     scene bg 2
-#
-#     jump lantai_2
-#
-# label lantai_3:
-#
-#     scene bg lt_3
-#
-#     menu:
-#
-#     "Pergi ke ruang santai"
-#
-#         jump ruang_santai
-#
-#     "Pergi ke toilet.":
-#
-#             jump toilet
-#
-#     "Jelajah lantai 3"
-#
-#             jump jelajah_lt3
-#
-#     "Turun ke lantai 2"
-#
-#             jump lantai_2
-#
-#     "Pergi ke LP 1"
-#
-#             jump lp_1
-#
-# label lp_1:
-#
-#     scene bg depan_lp_1
-#
-#     #jika jam 15:30
-#     jump kelas_sistem_game
-#
-#     "Kembali ke lantai 3"
-#
-#         jump lantai_3
-#
-# label kelas_sistem_game:
-#
-#     if ($ makan = True && $ buang_air = True && shalat_dhuhur = True && shalat_ashar = True)
-#
-#         "Dapat nilai bagus"
-#
-#         "{b}Good Ending{/b}."
-#
-#     else if ($ makan = False || $ buang_air = False)
-#
-#         "...."
-#         "{b}Bad Ending{/b}."
-#
-#     else if ($ shalat_dhuhur = False || $ shalat_ashar = False)
-#
-#         "...."
-#         "{b}Bad Ending{/b}."
-#
-# label jelajah_lt3:
-#
-#     scene bg 1
-#     scene bg 2
-#
-#     jump lantai_3
-#
+label lantai_2:
+
+    $ lantai = 2
+
+    scene bg lantai2
+    with dissolve
+
+    "Lantai 2"
+
+    $ myClock.add_time(0,5,1)
+
+    menu:
+
+        "..."
+
+        "Pergi ke ruang santai":
+
+            $ myClock.add_time(0,5,1)
+            jump ruang_santai
+
+        "Pergi ke toilet.":
+
+            scene bg toilet
+            with fade
+            $ myClock.add_time(0,5,1)
+            jump toilet
+
+        "Pergi ke ruang TU.":
+
+            scene bg lorong_lantai2
+            with fade
+            $ myClock.add_time(0,5,1)
+            jump ruang_tu
+
+        "Jelajah lantai 2":
+
+            jump jelajah_lt2
+
+        "Turun ke lantai 1":
+
+            scene bg turun_lantai1
+            with fade   
+            jump lantai_1
+
+        "Naik ke lantai 3":
+
+            scene bg tangga_lantai3
+            with fade
+            jump lantai_3
+
+label ruang_santai:
+
+    if lantai == 2:
+        scene bg ruang_Santai_lt2
+        with dissolve
+
+    elif lantai == 3:
+        scene bg ruang_Santai_lt3
+        with dissolve
+
+    menu:
+
+        "...."
+
+        "Kembali":
+            if lantai == 2:
+                jump lantai_2
+            elif lantai == 3:
+                jump lantai_3
+
+        "Bersantai 1 jam":
+
+            "Wahh enaknya bersantai sebelum kelas"
+            $ myClock.add_time(1,0,1)
+            if lantai == 2:
+                jump lantai_2
+            elif lantai == 3:
+                jump lantai_3
+
+label ruang_tu:
+
+    scene bg ruang_TU
+    with dissolve
+
+    menu:
+
+        "...."
+
+        "Kembali":
+
+            jump lantai_2
+
+        "Bertanya jadwal kelas":
+
+            $ myClock.add_time(0,10,1)
+            jump ruang_tu
+
+label jelajah_lt2:
+
+    scene bg 1
+    scene bg 2
+    $ myClock.add_time(1,0,3)
+
+    jump lantai_2
+
+label lantai_3:
+
+    $ lantai = 3
+
+    scene bg lantai3
+    with dissolve
+
+    $ myClock.add_time(0,5,1)
+
+    menu:
+
+        "...."
+
+        "Pergi ke ruang santai":
+
+            $ myClock.add_time(0,5,1)
+            jump ruang_santai
+
+        "Pergi ke toilet.":
+
+            scene bg toilet
+            with fade
+            $ myClock.add_time(0,5,1)
+            jump toilet
+
+        # "Jelajah lantai 3":
+
+        #     jump jelajah_lt3
+
+        "Turun ke lantai 2":
+
+            scene bg turun_lantai2
+            with fade
+            jump lantai_2
+
+        "Pergi ke LP 1":
+
+            $ myClock.add_time(0,5,1)
+            jump lp_1
+
+label lp_1:
+
+    scene bg depan_lp_1
+    with dissolve
+
+    menu:
+        
+        "....."
+
+        #jika jam 15:30
+        "Masuk kelas Sistem Game":
+            $h, m, s = myClock.get_time()
+            "It is [h]:[m]:[s]"
+            if ((int(h) == 3 or 4) and int(m) >= 30):
+                jump kelas_sistem_game
+            else:
+                "Masih ada kelas lain, tunggu beberapa saat lagi."
+                jump lp_1
+
+        "Tunggu":
+
+            $h, m, s = myClock.get_time()
+            if ((int(h) == 3 or 4) and int(m) >= 30):
+                "Kelas sudah dimulai, segera masuk!"
+                jump lp_1
+            else:
+                $ myClock.add_time(0,5,1)
+                jump lp_1
+
+        "Kembali ke lantai 3":
+
+            jump lantai_3
+
+label kelas_sistem_game:
+
+    scene black
+
+    if ($ makan is True and $ buang_air is True and shalat_dhuhur is True and shalat_ashar is True):
+
+        "Dapat nilai bagus"
+
+        "{b}Good Ending{/b}."
+
+    elif ($ makan is False or $ buang_air is False):
+
+        "Kamu tidak fokus dalam kelas karena belum makan dan buang air terlebih dahulu"
+        "Dan akhirnya kamu mendapat nilai jelek"
+        "{b}Bad Ending{/b}."
+
+    elif ($ shalat_dhuhur is False or $ shalat_ashar is False):
+
+        "Kamu belum shalat wajib!"
+        "Sehingga mendapat nilai jelek karena tidak mendapat berkah"
+        "{b}Bad Ending{/b}."
+
+label jelajah_lt3:
+
+    scene bg 1
+    scene bg 2
+    $ myClock.add_time(1,0,3)
+
+    jump lantai_3
+
 
 label toilet:
 
@@ -465,3 +549,7 @@ label toilet:
         "Kembali":
             if lantai == 1:
                 jump lantai_1
+            elif lantai == 2:
+                jump lantai_2
+            elif lantai == 3:
+                jump lantai_3
