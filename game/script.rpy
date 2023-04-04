@@ -579,6 +579,48 @@ label jelajah_lt3:
     scene bg rg_santai_lt3
     with fade
 
+    scene bg rg_santai_lt3_2
+    with fade
+
+    scene bg depan_lp_1
+    with fade
+
+    scene bg lab_ajk
+    with fade
+
+    scene bg lab_alpro
+    with fade
+
+    scene bg lab_igs
+    with fade
+
+    scene bg lab_kbj
+    with fade
+
+    scene bg lab_kcv
+    with fade
+
+    scene bg lab_mi
+    with fade
+
+    scene bg lab_microsoft
+    with fade
+
+    scene bg lab_rpl
+    with fade
+
+    scene bg sekretariat_hmtc
+    with fade
+
+    scene bg residensi_pascasarjana
+    with fade
+
+    scene bg lorong_selatan_lt3
+    with fade
+
+    scene bg kantin_lt3
+    with fade
+
     $ myClock.add_time(0,30,3)
 
     jump lantai_3
