@@ -22,16 +22,16 @@ screen clock_screen:
 # The game starts here.
 label start:
 
-    scene bg fsm_1
+    scene fsm_jelajah_tc1
     with fade
 
     "FSM Jelajah Teknik Informatika"
     with PushMove(1, "pushup")
 
-    scene bg fsm_2
+    scene fsm_jelajah_tc2
     with Pause(5)
 
-    "Dibuat oleh...."
+    "Dibuat oleh: \n\n05111940000071-Daffa Amanullah Setyawan \n05111940000170-Ridho Ajiraga Jagiswara"
 
     scene bg jalan
 
