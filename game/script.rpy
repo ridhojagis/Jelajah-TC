@@ -3,7 +3,7 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define a = Character("Ari")
+define a = Character(("Me"), color= "#ceffc8")
 define i = Character("Pak Imam")
 
 default makan = False
@@ -132,6 +132,15 @@ label lantai_1:
     with dissolve
 
     $ myClock.add_time(0,5,1)
+
+    $h, m, s = myClock.get_time()
+    if int(h) >= 5 and int(h) <= 7:
+        # END.
+        "Kelas Sistem Game sudah selesai"
+        "Kamu dianggap Alpha dan mendapat nilai jelek"
+        "{b}Bad Ending{/b}."
+        return
+    # This ends the game.
 
     menu:
 
@@ -320,6 +329,14 @@ label lantai_2:
 
     $ myClock.add_time(0,5,1)
 
+    $h, m, s = myClock.get_time()
+    if int(h) >= 5 and int(h) <= 7:
+        # END.
+        "Kelas Sistem Game sudah selesai"
+        "Kamu dianggap Alpha dan mendapat nilai jelek"
+        "{b}Bad Ending{/b}."
+        return
+
     menu:
 
         "..."
@@ -403,10 +420,10 @@ label ruang_tu:
 
         "Bertanya jadwal kelas":
 
+            a "Permisi Pak"
+
             show dosen2
             with dissolve
-
-            a "Permisi Pak"
             i "Iya ada apa?"
             a "Saya ingin bertanya mengenai jadwal kelas Sistem Game"
 
@@ -415,9 +432,32 @@ label ruang_tu:
 
 label jelajah_lt2:
 
-    scene bg 1
-    scene bg 2
-    $ myClock.add_time(1,0,3)
+    scene bg lantai2
+    with fade
+
+    scene bg lorong_lantai2
+    with fade
+
+    scene bg ruang-aula
+    with fade
+
+    scene bg rg_santai_lt2
+    with fade
+
+    scene bg toilet_lt2
+    with fade
+
+    scene bg lorong_lantai2_2
+    with fade
+
+    scene bg ruang-sidang
+    with fade
+
+    scene bg rg_tu
+    with fade
+
+
+    $ myClock.add_time(0,30,3)
 
     jump lantai_2
 
@@ -429,6 +469,14 @@ label lantai_3:
     with dissolve
 
     $ myClock.add_time(0,5,1)
+
+    $h, m, s = myClock.get_time()
+    if int(h) >= 5 and int(h) <= 7:
+        # END.
+        "Kelas Sistem Game sudah selesai"
+        "Kamu dianggap Alpha dan mendapat nilai jelek"
+        "{b}Bad Ending{/b}."
+        return
 
     menu:
 
@@ -446,9 +494,9 @@ label lantai_3:
             $ myClock.add_time(0,5,1)
             jump toilet
 
-        # "Jelajah lantai 3":
+        "Jelajah lantai 3":
 
-        #     jump jelajah_lt3
+            jump jelajah_lt3
 
         "Turun ke lantai 2":
 
@@ -525,9 +573,13 @@ label kelas_sistem_game:
 
 label jelajah_lt3:
 
-    scene bg 1
-    scene bg 2
-    $ myClock.add_time(1,0,3)
+    scene bg lantai3
+    with fade
+
+    scene bg rg_santai_lt3
+    with fade
+
+    $ myClock.add_time(0,30,3)
 
     jump lantai_3
 
