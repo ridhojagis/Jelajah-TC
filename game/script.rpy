@@ -3,7 +3,7 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define a = Character(("Me"), color= "#ceffc8")
+define a = Character(("Aris"), color= "#ceffc8")
 define i = Character("Pak Imam")
 
 default makan = False
@@ -22,10 +22,12 @@ screen clock_screen:
 # The game starts here.
 label start:
 
+    play music "Glitter Blast.mp3"
+
     scene fsm_jelajah_tc1
     with fade
 
-    "FSM Jelajah Teknik Informatika"
+    "Berikut adalah FSM Jelajah-TC"
     with PushMove(1, "pushup")
 
     scene fsm_jelajah_tc2
@@ -35,32 +37,54 @@ label start:
 
     scene bg jalan
 
+    "Selamat datang di game Jelajah-TC"
+    "Pada game ini kamu akan berperan sebagai Aris, mahasiswa Teknik Informatika"
+    "Kamu diharuskan untuk menghadiri kelas Sistem Game pada sore hari untuk melaksanakan ujian dan mendapat nilai bagus"
+    "Agar ujianmu lancar, kamu harus menyelesaikan beberapa kegiatan sebelum masuk kelas"
+    "Untuk mengetahui waktu saat ini, kamu dapat melihat jam yang ada di kanan atas."
+
     # menampilkan jam analog
     show screen clock_screen
     with Dissolve(1)
 
+    "Waktu saat ini menunjukkan pukul 8 pagi"
+    "Karena sebelumnya telah libur panjang selama 2 minggu, Aris datang di pagi hari untuk melihat-lihat keadaan kampus."
+
     scene bg gerbang_dpt1
     with fade
+
+    a "Wahh sudah lama rasanya sejak terakhir kali ke kampus"
+    a "Masih seperti biasa.."
+    a "Keadaan sekitar kampus selalu bersih dan hijau."
 
     scene bg gerbang_dpt2
     with fade
 
+    with Pause(5)
+
     scene bg parkir_mobil1
     with fade
+
+    "Dengan kendaraan motornya, Aris mulai memasuki gerbang."
 
     scene bg parkir_mobil2
     with fade
 
+    "Di depan kampus terlihat sudah ada beberapa mobil yang parkir"
+    "Aris harus memarkirkan motornya terlebih dahulu"
+
     scene bg parkir_mobil3
     with fade
+
+    a "Baik aku harus memarkirkan motor terlebih dahulu"
 
     $ myClock.add_time(0,15,1)
 
     menu:
 
-        "....."
+        "Kemana kamu akan pergi?"
 
-        "Ke parkiran":
+        "Ke parkiran motor":
 
             jump parkiran
 
@@ -101,20 +125,27 @@ label parkiran:
     scene bg jalan_ke_parkir1
     with fade
 
-    scene bg jalan_ke_parkir2
-    with fade
-
-    scene bg parkir1
-    with fade
+    "Aris mulai menuju ke parkiran motor"
+    "Setibanya dia di parkiran motor"
+    "Aris terkejut karena parkiran motor sudah terlihat penuh"
 
     scene bg parkir2
     with fade
 
+    a "Hah??! masih jam segini kenapa parkiran sudah penuh?"
+    a "Sepertinya orang-orang ini sangat bersemangat ke kampus karena habis libur panjang"
+    a "Baiklah.. aku akan mencari tempat parkir yang ada di ujung"
+
+    scene bg parkir1
+    with fade
+
     $ myClock.add_time(0,5,1)
+
+    "Setelah mencari selama 5 menit, Aris akhirnya mendapatkan parkir."
 
     menu:
 
-        "....."
+        "Kemana selanjutnya kamu harus pergi?"
 
         "Masuk ke dalam gedung":
 
@@ -142,9 +173,16 @@ label lantai_1:
         return
     # This ends the game.
 
+    "Saat ini jam [h]:[m]"
+
+    if makan is False and buang_air = False and shalat_dhuhur = False and shalat_ashar = False:
+        "Agar dapat menghadiri kelas Sistem Game dan mendapat nilai bagus, Aris harus makan terlebih dahulu"
+        "Selain itu dia juga harus buang air setelah makan"
+        "Dan yang terakhir harus menunaikan salat agar mendapat berkah di ujian nantinya"
+
     menu:
 
-        "....."
+        "Apa yang akan kamu lakukan?"
 
         "Jelajah lantai 1":
 
@@ -603,8 +641,8 @@ label jelajah_lt3:
     scene bg lab_mi
     with fade
 
-    scene bg lab_microsoft
-    with fade
+    # scene bg lab_microsoft
+    # with fade
 
     scene bg lab_rpl
     with fade
@@ -658,6 +696,6 @@ label toilet:
             if lantai == 1:
                 jump lantai_1
             elif lantai == 2:
-                jump lantai_2
+                jump lantai_2 
             elif lantai == 3:
                 jump lantai_3
