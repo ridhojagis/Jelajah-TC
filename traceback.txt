@@ -1,28 +1,41 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 495, in script
-    if ($ makan is True and $ buang_air is True and shalat_dhuhur is True and shalat_ashar is True):
-SyntaxError: invalid syntax (game/script.rpy, line 495)
+  File "game/script.rpy", line 28, in script
+    with fade
+OSError: Couldn't find file 'Glitter Blast.mp3'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 495, in script
-    if ($ makan is True and $ buang_air is True and shalat_dhuhur is True and shalat_ashar is True):
-  File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\ast.py", line 2115, in execute
-    if renpy.python.py_eval(condition):
-  File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\python.py", line 1090, in py_eval
-    code = py_compile(code, 'eval')
-  File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\python.py", line 1027, in py_compile
-    raise e
-  File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\python.py", line 979, in py_compile
-    raise orig_e
-  File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\python.py", line 972, in py_compile
-    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, 1)
-SyntaxError: invalid syntax (game/script.rpy, line 495)
+  File "game/script.rpy", line 28, in script
+    with fade
+  File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\ast.py", line 1658, in execute
+    renpy.exports.with_statement(trans, paired=paired)
+  File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\exports.py", line 1657, in with_statement
+    return renpy.game.interface.do_with(trans, paired, clear=clear)
+  File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\display\core.py", line 2798, in do_with
+    return self.interact(trans_pause=True,
+  File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\display\core.py", line 3377, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\display\core.py", line 4103, in interact_core
+    renpy.audio.audio.periodic()
+  File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\audio\audio.py", line 1166, in periodic
+    raise_(exc[0], exc[1], exc[2])
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 441, in raise_
+  File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\audio\audio.py", line 1144, in periodic_thread_main
+    periodic_pass()
+  File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\audio\audio.py", line 1086, in periodic_pass
+    c.periodic()
+  File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\audio\audio.py", line 517, in periodic
+    topf = load(filename)
+  File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\audio\audio.py", line 70, in load
+    rv = renpy.loader.load(fn)
+  File "C:\Users\RidhoJagis\Downloads\Program\renpy-8.0.3-sdk\renpy\loader.py", line 820, in load
+    raise IOError("Couldn't find file '%s'." % name)
+OSError: Couldn't find file 'Glitter Blast.mp3'.
 
 Windows-10-10.0.22621 AMD64
 Ren'Py 8.0.3.22090809
 Jelajah_TC 1.0
-Tue Apr  4 21:05:34 2023
+Wed Apr  5 10:12:41 2023

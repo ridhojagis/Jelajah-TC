@@ -22,7 +22,7 @@ screen clock_screen:
 # The game starts here.
 label start:
 
-    play music "Glitter Blast.mp3"
+    play music "/audio/Cheery Monday.mp3"
 
     scene fsm_jelajah_tc1
     with fade
@@ -114,6 +114,8 @@ label kos:
 
     $ myClock.add_time(0,15,1)
 
+    "Aris pulang ke kos"
+
     # END.
     "{b}Bad Ending{/b}."
 
@@ -157,6 +159,8 @@ label parkiran:
 
 label lantai_1:
 
+    play music "/audio/Glitter Blast.mp3"
+
     $ lantai = 1
 
     scene bg lantai1
@@ -175,10 +179,10 @@ label lantai_1:
 
     "Saat ini jam [h]:[m]"
 
-    if makan is False and buang_air = False and shalat_dhuhur = False and shalat_ashar = False:
+    if makan is False and buang_air is False and shalat_dhuhur is False and shalat_ashar is False:
         "Agar dapat menghadiri kelas Sistem Game dan mendapat nilai bagus, Aris harus makan terlebih dahulu"
         "Selain itu dia juga harus buang air setelah makan"
-        "Dan yang terakhir harus menunaikan salat agar mendapat berkah di ujian nantinya"
+        "Dan yang terakhir harus menunaikan salat agar mendapat berkah di ujian nantinya."
 
     menu:
 
@@ -214,6 +218,8 @@ label lantai_1:
 
 
 label jelajah_lt1:
+
+    play music "/audio/Two Finger Johnny.mp3"
 
     scene bg lorong_utara_lt1_orang
     with fade
@@ -358,6 +364,8 @@ label kantin:
 
 label lantai_2:
 
+    play music "/audio/Glitter Blast.mp3"
+
     $ lantai = 2
 
     scene bg lantai2
@@ -470,6 +478,8 @@ label ruang_tu:
 
 label jelajah_lt2:
 
+    play music "/audio/Two Finger Johnny.mp3"
+
     scene bg lantai2
     with fade
 
@@ -500,6 +510,8 @@ label jelajah_lt2:
     jump lantai_2
 
 label lantai_3:
+
+    play music "/audio/Glitter Blast.mp3"
 
     $ lantai = 3
 
@@ -611,6 +623,8 @@ label kelas_sistem_game:
 
 label jelajah_lt3:
 
+    play music "/audio/Two Finger Johnny.mp3"
+
     scene bg lantai3
     with fade
 
@@ -674,7 +688,7 @@ label toilet:
         "....."
 
         "Cuci muka":
-            "Hmm segar kembali"
+            a "Hmm segar kembali"
             $ myClock.add_time(0,5,1)
             jump toilet
 
@@ -684,7 +698,7 @@ label toilet:
                 if buang_air is False:
                     $ myClock.add_time(0,15,1)
                     $buang_air = True
-                    "ah leganya..."
+                    a "ah leganya..."
                 else:
                     "*Baru saja tadi buang air"
             else:
